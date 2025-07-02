@@ -1,19 +1,28 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { Product } from "@@/shared/types/Product";
+
+defineProps<{
+  product?: Product;
+}>();
+</script>
 
 <template>
   <div class="my-auto flex flex-col gap-5">
-    <h2 class="text-theme-dark-grayish-blue text-sm font-semibold uppercase">Sneaker Company</h2>
+    <h2 class="text-theme-dark-grayish-blue text-sm font-semibold uppercase">
+      {{ product?.brand }}
+    </h2>
     <h1 class="text-theme-very-dark-blue leading-12 text-[2.85rem] font-bold">
-      Fall Limited Edition Sneakers
+      {{ product?.name }}
     </h1>
     <p class="text-theme-dark-grayish-blue">
-      These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber
-      outer sole, they'll withstand everything the weather can offer.
+      {{ product?.description }}
     </p>
     <div class="flex items-center gap-4">
-      <span class="text-theme-very-dark-blue text-3xl font-bold">$125.00</span>
+      <span class="text-theme-very-dark-blue text-3xl font-bold">${{ product?.price }}</span>
     </div>
-    <p class="text-theme-dark-grayish-blue font-semibold line-through">$250.00</p>
+    <p class="text-theme-dark-grayish-blue font-semibold line-through">
+      ${{ product?.originalPrice }}
+    </p>
     <div class="flex gap-4">
       <div class="bg-theme-light-grayish-blue flex items-center gap-6 rounded-lg">
         <button class="flex cursor-pointer items-center justify-center p-4">

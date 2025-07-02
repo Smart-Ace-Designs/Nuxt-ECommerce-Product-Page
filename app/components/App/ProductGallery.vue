@@ -1,10 +1,13 @@
 <script setup lang="ts">
-const imageList = [
-  { id: 1, src: "/image-product-1.jpg", alt: "Fall limited edition sneakers - image 1" },
-  { id: 2, src: "/image-product-2.jpg", alt: "Fall limited edition sneakers - image 2" },
-  { id: 3, src: "/image-product-3.jpg", alt: "Fall limited edition sneakers - image 3" },
-  { id: 4, src: "/image-product-4.jpg", alt: "Fall limited edition sneakers - image 4" },
-];
+interface Image {
+  id: number;
+  src: string;
+  alt: string;
+}
+
+defineProps<{
+  imageList?: Image[];
+}>();
 
 const selectedImage = ref<number>(1);
 </script>
