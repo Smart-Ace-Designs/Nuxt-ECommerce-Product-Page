@@ -6,6 +6,8 @@ const navItems = [
   { label: "About", href: "/" },
   { label: "Contact", href: "/" },
 ];
+
+const cartCounter = ref<number>(0);
 </script>
 
 <template>
