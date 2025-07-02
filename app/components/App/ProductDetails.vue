@@ -4,6 +4,13 @@ import type { Product } from "@@/shared/types/Product";
 defineProps<{
   product?: Product;
 }>();
+
+const cartCounter = useState<number>("cartCounter");
+const cartIncrementAmount = ref(0);
+const updateCartCounter = () => {
+  cartCounter.value += cartIncrementAmount.value;
+  cartIncrementAmount.value = 0;
+};
 </script>
 
 <template>
@@ -25,16 +32,23 @@ defineProps<{
     </p>
     <div class="flex gap-4">
       <div class="bg-theme-light-grayish-blue flex items-center gap-6 rounded-lg">
-        <button class="flex cursor-pointer items-center justify-center p-4">
+        <button
+          class="flex cursor-pointer items-center justify-center p-4"
+          @click="cartIncrementAmount > 0 ? cartIncrementAmount-- : null"
+        >
           <img src="/icon-minus.svg" alt="" />
         </button>
-        <span class="text-theme-very-dark-blue font-bold">0</span>
-        <button class="flex cursor-pointer items-center justify-center p-4">
+        <span class="text-theme-very-dark-blue font-bold">{{ cartIncrementAmount }}</span>
+        <button
+          class="flex cursor-pointer items-center justify-center p-4"
+          @click="cartIncrementAmount++"
+        >
           <img src="/icon-plus.svg" alt="" />
         </button>
       </div>
       <button
         class="bg-theme-orange hover:bg-theme-orange/80 text-shadow-theme-very-dark-blue text-theme-very-dark-blue flex items-center gap-4 rounded-lg px-20 py-4 font-bold"
+        @click="updateCartCounter"
       >
         <svg
           class="fill-theme-very-dark-blue size-4"

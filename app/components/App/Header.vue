@@ -7,7 +7,7 @@ const navItems = [
   { label: "Contact", href: "/" },
 ];
 
-const cartCounter = ref<number>(0);
+const cartCounter = useState<number>("cartCounter");
 </script>
 
 <template>
@@ -30,8 +30,14 @@ const cartCounter = ref<number>(0);
       </nav>
     </div>
     <div class="flex items-center gap-10">
-      <button aria-label="View cart">
+      <button aria-label="View cart" class="relative">
         <img src="/icon-cart.svg" alt="Cart" />
+        <span
+          v-if="cartCounter > 0"
+          class="bg-theme-orange absolute -right-2 -top-2 rounded-full px-2 text-[10px] text-white"
+        >
+          {{ cartCounter }}
+        </span>
       </button>
       <img
         src="/image-avatar.png"
