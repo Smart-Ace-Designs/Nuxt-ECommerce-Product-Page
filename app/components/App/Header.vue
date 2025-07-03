@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { ref } from "vue";
+// import CartContents from "../Cart/CartContents.vue";
+
 const navItems = [
   { label: "Collections", href: "/" },
   { label: "Men", href: "/" },
@@ -8,11 +11,16 @@ const navItems = [
 ];
 
 const cartCounter = useState<number>("cartCounter");
+const showCart = ref(false);
+
+function toggleCart() {
+  showCart.value = !showCart.value;
+}
 </script>
 
 <template>
   <header
-    class="border-theme-grayish-blue/30 flex items-center justify-between py-4 md:border-b md:py-7"
+    class="border-theme-grayish-blue/30 relative flex items-center justify-between py-4 md:border-b md:py-7"
   >
     <div class="flex items-center gap-14">
       <button aria-label="Open menu" class="md:hidden">
@@ -35,8 +43,8 @@ const cartCounter = useState<number>("cartCounter");
         </ul>
       </nav>
     </div>
-    <div class="flex items-center gap-10">
-      <button aria-label="View cart" class="relative cursor-pointer">
+    <div class="relative flex items-center gap-10">
+      <button aria-label="View cart" class="relative cursor-pointer" @click="toggleCart">
         <img src="/icon-cart.svg" alt="Cart" />
         <span
           v-if="cartCounter > 0"
@@ -50,6 +58,9 @@ const cartCounter = useState<number>("cartCounter");
         alt="User avatar"
         class="hover:border-theme-orange md:hover:border-theme-orange size-7 cursor-pointer rounded-full border-2 border-transparent transition-all duration-200 hover:scale-105 md:size-14 md:hover:scale-110"
       />
+      <div v-if="showCart" class="absolute right-0 top-[calc(100%+16px)] z-10">
+        <AppCartContents />
+      </div>
     </div>
   </header>
 </template>
