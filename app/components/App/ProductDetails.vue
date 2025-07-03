@@ -31,7 +31,9 @@ const updateCartCounter = () => {
       ${{ product?.originalPrice }}
     </p>
     <div class="flex gap-4">
-      <div class="bg-theme-light-grayish-blue flex items-center gap-6 rounded-lg">
+      <div
+        class="bg-theme-light-grayish-blue flex w-36 items-center justify-between gap-3 rounded-lg"
+      >
         <button
           class="flex cursor-pointer items-center justify-center p-4"
           @click="cartIncrementAmount > 0 ? cartIncrementAmount-- : null"
