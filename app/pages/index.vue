@@ -14,7 +14,10 @@ const images = computed(() => product.value?.images ?? []);
   <main>
     <div class="gap-33 py-22 grid grid-cols-2 px-12">
       <AppProductGallery :imageList="images" v-if="images.length" />
-      <AppProductDetails :product="product" />
+      <div class="my-auto flex flex-col gap-5">
+        <AppProductDetails :product="product" />
+        <AppCart />
+      </div>
     </div>
   </main>
 </template>
