@@ -29,8 +29,8 @@ const totalPrice = (item: CartItem) => {
     <div v-else class="flex flex-col gap-6">
       <div class="flex items-center gap-4" v-for="item in cartContents" :key="item.id">
         <img
-          src="/image-product-1-thumbnail.jpg"
-          alt="Fall Limited Edition Sneakers"
+          :src="product(item.id)?.images[0]?.thumbnail"
+          :alt="product(item.id)?.name"
           class="size-14 rounded-md"
         />
         <div class="flex-1">

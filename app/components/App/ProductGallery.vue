@@ -2,6 +2,7 @@
 interface Image {
   id: number;
   src: string;
+  thumbnail: string;
   alt: string;
 }
 
@@ -29,7 +30,7 @@ const selectedImage = ref<number>(1);
         ]"
       >
         <img
-          :src="image.src"
+          :src="image.thumbnail"
           :alt="image.alt"
           :class="[
             selectedImage === image.id ? 'rounded opacity-30' : 'rounded-xl hover:opacity-30',

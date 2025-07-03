@@ -8,6 +8,7 @@ export interface Product {
   images: {
     id: number;
     src: string;
+    thumbnail: string;
     alt: string;
   }[];
 }
