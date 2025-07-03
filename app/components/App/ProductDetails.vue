@@ -18,6 +18,7 @@ defineProps<{
   </p>
   <div class="flex items-center gap-4">
     <span class="text-theme-very-dark-blue text-3xl font-bold">${{ product?.price }}</span>
+    <span class="bg-theme-very-dark-blue rounded-md px-2 py-1 font-medium text-white">50%</span>
   </div>
   <p class="text-theme-dark-grayish-blue font-semibold line-through">
     ${{ product?.originalPrice }}
