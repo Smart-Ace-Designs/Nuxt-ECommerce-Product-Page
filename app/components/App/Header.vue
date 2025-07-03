@@ -21,10 +21,16 @@ const cartCounter = useState<number>("cartCounter");
       <img src="/logo.svg" alt="Sneakers Logo" class="h-5" />
       <nav class="hidden md:block">
         <ul class="text-theme-dark-grayish-blue flex items-center gap-8">
-          <li v-for="item in navItems" :key="item.label">
-            <NuxtLink :to="item.href" class="text-theme-dark-grayish-blue text-md font-medium">
+          <li v-for="item in navItems" :key="item.label" class="group relative cursor-pointer">
+            <NuxtLink
+              :to="item.href"
+              class="text-theme-dark-grayish-blue text-md group-hover:text-theme-orange font-medium transition-colors duration-300 ease-in-out"
+            >
               {{ item.label }}
             </NuxtLink>
+            <span
+              class="bg-theme-orange absolute left-0 right-0 top-[calc(100%+42px)] h-[2px] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            ></span>
           </li>
         </ul>
       </nav>
