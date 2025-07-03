@@ -1,9 +1,21 @@
 <script lang="ts" setup>
 const cartIncrementAmount = ref(0);
+
 const cartCounter = useState<number>("cartCounter");
 const updateCartCounter = () => {
   cartCounter.value += cartIncrementAmount.value;
-  cartIncrementAmount.value = 0;
+};
+
+const cartContents = useState<CartItem[]>("cartContents");
+const updateCartContents = (id: number) => {
+  if (cartIncrementAmount.value > 0) {
+    const existingItem = cartContents.value.find((item) => item.id === id);
+    if (existingItem) {
+      existingItem.quantity += cartIncrementAmount.value;
+    } else {
+      cartContents.value.push({ id, quantity: cartIncrementAmount.value });
+    }
+  }
 };
 </script>
 
@@ -27,7 +39,11 @@ const updateCartCounter = () => {
       </button>
     </div>
     <button
-      @click="updateCartCounter"
+      @click="
+        updateCartCounter();
+        updateCartContents(1);
+        cartIncrementAmount = 0;
+      "
       :disabled="cartIncrementAmount === 0"
       :class="[
         cartIncrementAmount === 0

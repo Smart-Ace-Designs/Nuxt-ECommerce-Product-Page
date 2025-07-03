@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
-// import CartContents from "../Cart/CartContents.vue";
-
 const navItems = [
   { label: "Collections", href: "/" },
   { label: "Men", href: "/" },

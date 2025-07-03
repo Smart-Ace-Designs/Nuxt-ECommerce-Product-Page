@@ -1,5 +1,19 @@
 <script lang="ts" setup>
-const cartCounter = useState<number>("cartCounter");
+import productDetails from "@@/data/products.json";
+
+const cartContents = useState<CartItem[]>("cartContents");
+const product = (id: number) => productDetails.find((p) => p.id === id) as Product | undefined;
+const discountPrice = (item: CartItem) => {
+  const productItem = product(item.id);
+  if (!productItem) return "0.00";
+  const originalPrice = parseFloat(productItem.price);
+  const discount = productItem.discount || 0;
+  return (originalPrice * (1 - discount)).toFixed(2);
+};
+const totalPrice = (item: CartItem) => {
+  const price = discountPrice(item);
+  return (parseFloat(price) * item.quantity).toFixed(2);
+};
 </script>
 
 <template>
@@ -7,25 +21,25 @@ const cartCounter = useState<number>("cartCounter");
     <h2 class="text-theme-very-dark-blue mb-6 text-lg font-bold">Cart</h2>
     <hr class="border-theme-grayish-blue/30 mb-6" />
     <div
-      v-if="cartCounter === 0"
+      v-if="cartContents.length === 0"
       class="text-theme-dark-grayish-blue py-16 text-center font-semibold"
     >
       Your cart is empty.
     </div>
     <div v-else class="flex flex-col gap-6">
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4" v-for="item in cartContents" :key="item.id">
         <img
           src="/image-product-1-thumbnail.jpg"
           alt="Fall Limited Edition Sneakers"
           class="size-14 rounded-md"
         />
         <div class="flex-1">
-          <p class="text-theme-dark-grayish-blue text-sm">Fall Limited Edition Sneakers</p>
+          <p class="text-theme-dark-grayish-blue text-sm">{{ product(item.id)?.name }}</p>
           <div class="flex items-center gap-2 text-sm">
-            <span class="text-theme-grayish-blue">$125.00</span>
+            <span class="text-theme-grayish-blue">{{ discountPrice(item) }}</span>
             <span class="text-theme-grayish-blue">x</span>
-            <span class="text-theme-grayish-blue">3</span>
-            <span class="text-theme-very-dark-blue ml-2 font-bold">$375.00</span>
+            <span class="text-theme-grayish-blue">{{ item.quantity }}</span>
+            <span class="text-theme-very-dark-blue ml-2 font-bold">{{ totalPrice(item) }}</span>
           </div>
         </div>
         <button class="p-1 transition hover:opacity-70">
