@@ -47,7 +47,7 @@ const totalPrice = (item: CartItem) => {
         </button>
       </div>
       <button
-        class="bg-theme-orange mt-2 w-full rounded-lg py-4 font-bold text-white transition hover:bg-orange-400"
+        class="bg-theme-orange text-shadow-theme-very-dark-blue mt-2 w-full rounded-lg py-4 font-bold transition hover:bg-orange-400"
       >
         Checkout
       </button>
