@@ -36,7 +36,7 @@ const cartCounter = useState<number>("cartCounter");
       </nav>
     </div>
     <div class="flex items-center gap-10">
-      <button aria-label="View cart" class="relative">
+      <button aria-label="View cart" class="relative cursor-pointer">
         <img src="/icon-cart.svg" alt="Cart" />
         <span
           v-if="cartCounter > 0"
@@ -48,7 +48,7 @@ const cartCounter = useState<number>("cartCounter");
       <img
         src="/image-avatar.png"
         alt="User avatar"
-        class="hover:border-theme-orange size-7 rounded-full border-2 border-transparent md:size-14"
+        class="hover:border-theme-orange md:hover:border-theme-orange size-7 cursor-pointer rounded-full border-2 border-transparent transition-all duration-200 hover:scale-105 md:size-14 md:hover:scale-110"
       />
     </div>
   </header>
