@@ -32,7 +32,7 @@ const selectedImage = ref<number>(1);
           :src="image.src"
           :alt="image.alt"
           :class="[
-            selectedImage === image.id ? 'rounded opacity-30' : 'rounded-xl hover:opacity-70',
+            selectedImage === image.id ? 'rounded opacity-30' : 'rounded-xl hover:opacity-30',
             'transition-opacity duration-200',
           ]"
           @click="selectedImage = image.id"
