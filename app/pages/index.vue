@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { Product } from "@@/shared/types/Product";
 import productDetails from "@@/data/products.json";
 
 const product = computed(() => productDetails.find((p) => p.id === 1)) as ComputedRef<

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Product } from "@@/shared/types/Product";
-
 const props = defineProps<{
   product?: Product;
 }>();

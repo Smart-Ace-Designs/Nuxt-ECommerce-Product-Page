@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-const cartCounter = useState<number>("cartCounter");
 const cartIncrementAmount = ref(0);
+const cartCounter = useState<number>("cartCounter");
 const updateCartCounter = () => {
   cartCounter.value += cartIncrementAmount.value;
   cartIncrementAmount.value = 0;
