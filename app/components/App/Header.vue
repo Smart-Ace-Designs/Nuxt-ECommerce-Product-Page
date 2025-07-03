@@ -21,7 +21,7 @@ const cartCounter = useState<number>("cartCounter");
       <img src="/logo.svg" alt="Sneakers Logo" class="h-5" />
       <nav class="hidden md:block">
         <ul class="text-theme-dark-grayish-blue flex items-center gap-8">
-          <li v-for="item in navItems">
+          <li v-for="item in navItems" :key="item.label">
             <NuxtLink :to="item.href" class="text-theme-dark-grayish-blue text-md font-medium">
               {{ item.label }}
             </NuxtLink>
