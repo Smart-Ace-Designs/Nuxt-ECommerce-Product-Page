@@ -27,10 +27,14 @@ const updateCartCounter = () => {
       </button>
     </div>
     <button
-      class="bg-theme-orange hover:bg-theme-orange/80 text-shadow-theme-very-dark-blue text-theme-very-dark-blue flex items-center gap-4 rounded-lg px-20 py-4 font-bold"
       @click="updateCartCounter"
       :disabled="cartIncrementAmount === 0"
-      :class="{ 'cursor-not-allowed': cartIncrementAmount === 0 }"
+      :class="[
+        cartIncrementAmount === 0
+          ? 'cursor-not-allowed'
+          : 'hover:bg-theme-orange/80 cursor-pointer',
+        'bg-theme-orange text-shadow-theme-very-dark-blue text-theme-very-dark-blue flex items-center gap-4 rounded-lg px-20 py-4 font-bold transition-colors duration-200',
+      ]"
       aria-label="Add to cart"
     >
       <svg
