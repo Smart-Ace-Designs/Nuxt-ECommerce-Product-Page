@@ -2,8 +2,6 @@
 import type { Product } from "@@/shared/types/Product";
 import productDetails from "@@/data/products.json";
 
-// Assumes future conversion to dynamic route with ID passed as a route parameter
-// Hard coded as "1" for demonstration purposes
 const product = computed(() => productDetails.find((p) => p.id === 1)) as ComputedRef<
   Product | undefined
 >;
