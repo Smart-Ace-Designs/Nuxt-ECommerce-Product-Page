@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+defineProps<{
+  productId: number;
+}>();
+
 const cartIncrementAmount = ref(0);
 
 const cartCounter = useState<number>("cartCounter");
@@ -41,7 +45,7 @@ const updateCartContents = (id: number) => {
     <button
       @click="
         updateCartCounter();
-        updateCartContents(1);
+        updateCartContents(productId);
         cartIncrementAmount = 0;
       "
       :disabled="cartIncrementAmount === 0"
