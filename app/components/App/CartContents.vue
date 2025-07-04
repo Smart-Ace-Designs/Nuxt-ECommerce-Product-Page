@@ -17,16 +17,16 @@ const totalPrice = (item: CartItem) => {
 </script>
 
 <template>
-  <div class="w-[360px] rounded-xl bg-white p-6 shadow-[0_20px_50px_0_rgba(29,32,38,0.15)]">
-    <h2 class="text-theme-very-dark-blue mb-6 text-lg font-bold">Cart</h2>
+  <div class="w-[360px] rounded-xl bg-white py-6 shadow-[0_20px_50px_0_rgba(29,32,38,0.15)]">
+    <h2 class="text-theme-very-dark-blue mb-6 px-6 text-lg font-bold">Cart</h2>
     <hr class="border-theme-grayish-blue/30 mb-6" />
     <div
       v-if="cartContents.length === 0"
-      class="text-theme-dark-grayish-blue py-16 text-center font-semibold"
+      class="text-theme-dark-grayish-blue px-6 py-16 text-center font-semibold"
     >
       Your cart is empty.
     </div>
-    <div v-else class="flex flex-col gap-6">
+    <div v-else class="flex flex-col gap-6 px-6">
       <div class="flex items-center gap-4" v-for="item in cartContents" :key="item.id">
         <img
           :src="product(item.id)?.images[0]?.thumbnail"
