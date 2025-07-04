@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import productDetails from "@@/data/products.json";
 
 const cartContents = useState<CartItem[]>("cartContents");
