@@ -17,8 +17,8 @@ const totalPrice = (item: CartItem) => {
 </script>
 
 <template>
-  <div class="w-[360px] rounded-xl bg-white py-6 shadow-[0_20px_50px_0_rgba(29,32,38,0.15)]">
-    <h2 class="text-theme-very-dark-blue mb-6 px-6 text-lg font-bold">Cart</h2>
+  <div class="w-[360px] rounded-xl bg-white pb-8 pt-4 shadow-[0_20px_50px_0_rgba(29,32,38,0.15)]">
+    <h2 class="text-theme-very-dark-blue mb-7 px-6 font-bold">Cart</h2>
     <hr class="border-theme-grayish-blue/30 mb-6" />
     <div
       v-if="cartContents.length === 0"
@@ -26,20 +26,20 @@ const totalPrice = (item: CartItem) => {
     >
       Your cart is empty.
     </div>
-    <div v-else class="flex flex-col gap-6 px-6">
+    <div v-else class="flex flex-col gap-6 px-5">
       <div class="flex items-center gap-4" v-for="item in cartContents" :key="item.id">
         <img
           :src="product(item.id)?.images[0]?.thumbnail"
           :alt="product(item.id)?.name"
-          class="size-14 rounded-md"
+          class="size-13 rounded-md"
         />
         <div class="flex-1">
-          <p class="text-theme-dark-grayish-blue text-sm">{{ product(item.id)?.name }}</p>
-          <div class="flex items-center gap-2 text-sm">
-            <span class="text-theme-grayish-blue">{{ discountPrice(item) }}</span>
-            <span class="text-theme-grayish-blue">x</span>
-            <span class="text-theme-grayish-blue">{{ item.quantity }}</span>
-            <span class="text-theme-very-dark-blue ml-2 font-bold">{{ totalPrice(item) }}</span>
+          <p class="text-theme-dark-grayish-blue">{{ product(item.id)?.name }}</p>
+          <div class="text-theme-grayish-blue flex items-center gap-1">
+            <span class="text-theme-dark-grayish-blue">${{ discountPrice(item) }}</span>
+            <span class="text-theme-dark-grayish-blue">x</span>
+            <span class="text-theme-dark-grayish-blue">{{ item.quantity }}</span>
+            <span class="text-theme-very-dark-blue ml-2 font-bold">${{ totalPrice(item) }}</span>
           </div>
         </div>
         <button class="p-1 transition hover:opacity-70">
@@ -47,7 +47,7 @@ const totalPrice = (item: CartItem) => {
         </button>
       </div>
       <button
-        class="bg-theme-orange text-shadow-theme-very-dark-blue mt-2 w-full rounded-lg py-4 font-bold transition hover:bg-orange-400"
+        class="bg-theme-orange text-shadow-theme-very-dark-blue w-full rounded-lg py-4 font-bold transition hover:bg-orange-400"
       >
         Checkout
       </button>

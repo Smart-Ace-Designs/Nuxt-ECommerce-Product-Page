@@ -55,7 +55,7 @@ function toggleCart() {
         alt="User avatar"
         class="hover:border-theme-orange md:hover:border-theme-orange size-7 cursor-pointer rounded-full border-2 border-transparent transition-all duration-200 hover:scale-105 md:size-14 md:hover:scale-110"
       />
-      <div v-if="showCart" class="absolute right-0 top-[calc(100%+16px)] z-10">
+      <div v-if="showCart" class="absolute -right-20 top-[calc(100%+10px)] z-10">
         <AppCartContents />
       </div>
     </div>
