@@ -11,14 +11,16 @@ defineProps<{
 }>();
 
 const selectedImage = ref<number>(1);
+const isOpen = ref<boolean>(false);
 </script>
 
 <template>
   <div class="grid gap-6">
     <img
+      @click="isOpen = true"
       :src="`/image-product-${selectedImage}.jpg`"
       :alt="`Fall limited edition sneakers - image ${selectedImage}`"
-      class="h-full w-full rounded-2xl object-cover"
+      class="h-full w-full cursor-pointer rounded-2xl object-cover"
     />
     <div class="grid grid-cols-4 gap-6">
       <div
@@ -40,5 +42,8 @@ const selectedImage = ref<number>(1);
         />
       </div>
     </div>
+  </div>
+  <div v-if="isOpen" class="fixed inset-0 bg-black/70">
+    <AppLightbox @close="isOpen = false" :image-list="imageList" />
   </div>
 </template>

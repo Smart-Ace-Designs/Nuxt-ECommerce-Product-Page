@@ -10,14 +10,19 @@ defineProps<{
   imageList?: Image[];
 }>();
 
+defineEmits(["close"]);
+
 const selectedImage = ref<number>(1);
 </script>
 
 <template>
-  <div class="bg-theme-grayish-blue flex h-screen flex-col items-center justify-center gap-10">
+  <div class="flex h-screen flex-col items-center justify-center gap-10">
     <div class="relative">
       <svg
         class="text-theme-white hover:text-theme-orange absolute -top-12 right-0 size-6 cursor-pointer fill-current transition-colors delay-200"
+        @click="$emit('close')"
+        role="button"
+        aria-label="Close gallery"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 14 15"
       >
@@ -33,7 +38,7 @@ const selectedImage = ref<number>(1);
       />
 
       <button
-        class="hover:text-theme-orange absolute -right-6 top-1/2 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg transition-colors delay-200"
+        class="hover:text-theme-orange absolute -right-6 top-1/2 flex size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg transition-colors delay-200"
         @click="selectedImage = selectedImage === 4 ? 1 : selectedImage + 1"
       >
         <svg class="size-6 stroke-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 18">
@@ -42,7 +47,7 @@ const selectedImage = ref<number>(1);
       </button>
 
       <button
-        class="hover:text-theme-orange absolute -left-6 top-1/2 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg transition-colors delay-200"
+        class="hover:text-theme-orange absolute -left-6 top-1/2 flex size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg transition-colors delay-200"
         @click="selectedImage = selectedImage === 1 ? 4 : selectedImage - 1"
       >
         <svg class="size-6 stroke-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 18">
@@ -51,23 +56,19 @@ const selectedImage = ref<number>(1);
       </button>
     </div>
     <div class="grid grid-cols-4 gap-6 px-8">
-      <div
-        v-for="image in imageList"
-        :key="image.id"
-        :class="[
-          selectedImage === image.id ? 'border-theme-orange rounded-xl border-2' : '',
-          'cursor-pointer',
-        ]"
-      >
-        <img
-          :src="image.thumbnail"
-          :alt="image.alt"
-          :class="[
-            selectedImage === image.id ? 'rounded opacity-30' : 'rounded-xl hover:opacity-30',
-            'size-20 transition-opacity duration-200',
-          ]"
+      <div v-for="image in imageList" :key="image.id" class="cursor-pointer">
+        <div
+          class="relative size-20 overflow-hidden rounded-xl"
+          :class="selectedImage === image.id ? 'border-theme-orange border-2' : ''"
           @click="selectedImage = image.id"
-        />
+        >
+          <img
+            :src="image.thumbnail"
+            :alt="image.alt"
+            class="h-full w-full object-cover transition-opacity duration-200"
+          />
+          <div v-if="selectedImage === image.id" class="absolute inset-0 bg-black/40"></div>
+        </div>
       </div>
     </div>
   </div>

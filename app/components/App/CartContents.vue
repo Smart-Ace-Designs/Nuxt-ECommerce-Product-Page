@@ -6,6 +6,7 @@ const cartCounter = useState<number>("cartCounter");
 const emptyCart = () => {
   cartContents.value = [];
   cartCounter.value = 0;
+  emit("close");
 };
 
 const product = (id: number) => productDetails.find((p) => p.id === id) as Product | undefined;
@@ -20,6 +21,8 @@ const totalPrice = (item: CartItem) => {
   const price = discountPrice(item);
   return (parseFloat(price) * item.quantity).toFixed(2);
 };
+
+const emit = defineEmits(["close"]);
 </script>
 
 <template>
@@ -54,6 +57,7 @@ const totalPrice = (item: CartItem) => {
       </div>
       <button
         class="bg-theme-orange text-shadow-theme-very-dark-blue w-full rounded-lg py-4 font-bold transition hover:bg-orange-400"
+        @click="emptyCart"
       >
         Checkout
       </button>
