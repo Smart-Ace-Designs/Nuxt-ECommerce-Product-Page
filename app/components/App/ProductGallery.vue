@@ -1,11 +1,4 @@
 <script setup lang="ts">
-interface Image {
-  id: number;
-  src: string;
-  thumbnail: string;
-  alt: string;
-}
-
 defineProps<{
   imageList: Image[];
 }>();
