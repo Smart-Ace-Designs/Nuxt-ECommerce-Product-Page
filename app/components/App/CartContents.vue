@@ -51,7 +51,7 @@ const emit = defineEmits(["close"]);
             <span class="text-theme-very-dark-blue ml-2 font-bold">${{ totalPrice(item) }}</span>
           </div>
         </div>
-        <button class="p-1 transition hover:opacity-70" @click="emptyCart">
+        <button class="cursor-pointer p-1 transition hover:opacity-70" @click="emptyCart">
           <img src="/icon-delete.svg" alt="Remove from cart" />
         </button>
       </div>
