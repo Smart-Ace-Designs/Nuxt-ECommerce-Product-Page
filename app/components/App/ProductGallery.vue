@@ -7,7 +7,7 @@ interface Image {
 }
 
 defineProps<{
-  imageList?: Image[];
+  imageList: Image[];
 }>();
 
 const selectedImage = ref<number>(1);
