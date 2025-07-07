@@ -2,6 +2,12 @@
 import productDetails from "@@/data/products.json";
 
 const cartContents = useState<CartItem[]>("cartContents");
+const cartCounter = useState<number>("cartCounter");
+const emptyCart = () => {
+  cartContents.value = [];
+  cartCounter.value = 0;
+};
+
 const product = (id: number) => productDetails.find((p) => p.id === id) as Product | undefined;
 const discountPrice = (item: CartItem) => {
   const productItem = product(item.id);
@@ -17,7 +23,7 @@ const totalPrice = (item: CartItem) => {
 </script>
 
 <template>
-  <div class="w-[360px] rounded-xl bg-white pb-8 pt-4 shadow-[0_20px_50px_0_rgba(29,32,38,0.15)]">
+  <div class="w-[360px] rounded-xl bg-white pb-8 pt-4 shadow-xl">
     <h2 class="text-theme-very-dark-blue mb-7 px-6 font-bold">Cart</h2>
     <hr class="border-theme-grayish-blue/30 mb-6" />
     <div
@@ -42,7 +48,7 @@ const totalPrice = (item: CartItem) => {
             <span class="text-theme-very-dark-blue ml-2 font-bold">${{ totalPrice(item) }}</span>
           </div>
         </div>
-        <button class="p-1 transition hover:opacity-70">
+        <button class="p-1 transition hover:opacity-70" @click="emptyCart">
           <img src="/icon-delete.svg" alt="Remove from cart" />
         </button>
       </div>
