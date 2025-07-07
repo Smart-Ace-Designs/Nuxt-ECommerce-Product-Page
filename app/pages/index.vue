@@ -11,7 +11,7 @@ const images = computed(() => product.value?.images ?? []);
 <template>
   <main>
     <div class="py-22 grid grid-cols-2 gap-32 px-12">
-      <AppProductGallery :imageList="images" v-if="images.length" />
+      <AppProductGallery :imageList="images" />
       <div class="my-auto flex flex-col gap-5">
         <AppProductDetails :product="product" />
         <AppCart :productId="productId" />
