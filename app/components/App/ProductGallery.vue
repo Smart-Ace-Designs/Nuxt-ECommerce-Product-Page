@@ -37,6 +37,6 @@ const isOpen = ref<boolean>(false);
     </div>
   </div>
   <div v-if="isOpen" class="fixed inset-0 bg-black/70">
-    <AppLightbox @close="isOpen = false" :image-list="imageList" />
+    <AppLightbox @close="isOpen = false" :image-list="imageList" :initial-image="selectedImage" />
   </div>
 </template>

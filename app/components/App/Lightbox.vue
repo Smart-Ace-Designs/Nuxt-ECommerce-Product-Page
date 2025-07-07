@@ -1,11 +1,12 @@
 <script setup lang="ts">
-defineProps<{
-  imageList?: Image[];
+const props = defineProps<{
+  imageList: Image[];
+  initialImage: number;
 }>();
 
 defineEmits(["close"]);
 
-const selectedImage = ref<number>(1);
+const selectedImage = ref<number>(props.initialImage || 1);
 </script>
 
 <template>
