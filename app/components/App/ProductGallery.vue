@@ -13,7 +13,7 @@ const isOpen = ref<boolean>(false);
       @click="isOpen = true"
       :src="`/image-product-${selectedImage}.jpg`"
       :alt="`Fall limited edition sneakers - image ${selectedImage}`"
-      class="h-full w-full cursor-pointer rounded-2xl object-cover"
+      class="h-full w-full cursor-pointer object-cover md:rounded-2xl"
     />
     <div class="hidden grid-cols-4 gap-6 md:grid">
       <div
