@@ -10,7 +10,7 @@ const images = computed(() => product.value?.images ?? []);
 
 <template>
   <main>
-    <div class="py-22 grid grid-cols-2 gap-32 px-12">
+    <div class="md:py-22 grid grid-cols-1 gap-8 py-4 md:grid-cols-2 md:gap-32 md:px-12">
       <AppProductGallery :imageList="images" />
       <div class="my-auto flex flex-col gap-5">
         <AppProductDetails :product="product" />

@@ -15,7 +15,7 @@ const isOpen = ref<boolean>(false);
       :alt="`Fall limited edition sneakers - image ${selectedImage}`"
       class="h-full w-full cursor-pointer rounded-2xl object-cover"
     />
-    <div class="grid grid-cols-4 gap-6">
+    <div class="hidden grid-cols-4 gap-6 md:grid">
       <div
         v-for="image in imageList"
         :key="image.id"
