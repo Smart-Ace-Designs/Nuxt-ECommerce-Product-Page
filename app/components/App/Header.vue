@@ -22,7 +22,7 @@ function toggleMobileMenu() {
 
 <template>
   <header
-    class="border-theme-grayish-blue/30 relative flex items-center justify-between py-4 md:border-b md:py-7"
+    class="border-theme-grayish-blue/30 relative flex items-center justify-between px-8 py-4 md:border-b md:px-0 md:py-7"
   >
     <div class="flex items-center gap-14">
       <button aria-label="Open menu" class="md:hidden" @click="toggleMobileMenu">

@@ -24,7 +24,7 @@ const updateCartContents = (id: number) => {
 </script>
 
 <template>
-  <div class="flex gap-4">
+  <div class="flex flex-col gap-4 md:flex-row">
     <div
       class="bg-theme-light-grayish-blue flex w-36 items-center justify-between gap-3 rounded-lg"
     >
