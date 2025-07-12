@@ -10,8 +10,14 @@ const selectedImage = ref<number>(props.initialImage || 1);
 </script>
 
 <template>
-  <div class="flex h-screen flex-col items-center justify-center gap-10">
-    <div class="relative">
+  <div 
+    class="flex h-screen flex-col items-center justify-center gap-10" 
+    role="dialog" 
+    aria-modal="true"
+    aria-label="Product image gallery"
+    tabindex="-1"
+  >
+    <div class="relative" role="region" aria-label="Main image viewer">
       <svg
         class="text-theme-white hover:text-theme-orange absolute -top-12 right-0 size-6 cursor-pointer fill-current transition-colors delay-200"
         @click="$emit('close')"
@@ -34,6 +40,7 @@ const selectedImage = ref<number>(props.initialImage || 1);
       <button
         class="hover:text-theme-orange absolute -right-6 top-1/2 flex size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg transition-colors delay-200"
         @click="selectedImage = selectedImage === 4 ? 1 : selectedImage + 1"
+        aria-label="Next image"
       >
         <svg class="size-6 stroke-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 18">
           <path d="m2 1 8 8-8 8" stroke-width="2" fill="none" fill-rule="evenodd" />
@@ -43,6 +50,7 @@ const selectedImage = ref<number>(props.initialImage || 1);
       <button
         class="hover:text-theme-orange absolute -left-6 top-1/2 flex size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg transition-colors delay-200"
         @click="selectedImage = selectedImage === 1 ? 4 : selectedImage - 1"
+        aria-label="Previous image"
       >
         <svg class="size-6 stroke-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 18">
           <path d="M11 1 3 9l8 8" stroke-width="2" fill="none" fill-rule="evenodd" />
@@ -50,11 +58,12 @@ const selectedImage = ref<number>(props.initialImage || 1);
       </button>
     </div>
     <div class="grid grid-cols-4 gap-6 px-8">
-      <div v-for="image in imageList" :key="image.id" class="cursor-pointer">
+      <div v-for="image in imageList" :key="image.id" class="cursor-pointer" role="button" tabindex="0">
         <div
           class="relative size-20 overflow-hidden rounded-xl"
           :class="selectedImage === image.id ? 'border-theme-orange border-2' : ''"
           @click="selectedImage = image.id"
+          :aria-current="selectedImage === image.id ? 'true' : undefined"
         >
           <img
             :src="image.thumbnail"
