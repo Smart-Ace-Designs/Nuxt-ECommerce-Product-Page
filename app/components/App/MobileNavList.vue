@@ -9,11 +9,12 @@ const navItems = [
 </script>
 
 <template>
-  <nav>
+  <nav aria-label="Main navigation" role="navigation">
     <ul class="flex flex-col gap-3">
       <li v-for="item in navItems" :key="item.label" class="relative cursor-pointer">
         <NuxtLink
           :to="item.href"
+          :aria-label="`Navigate to ${item.label} section`"
           class="text-theme-very-dark-blue text-md hover:text-theme-orange font-semibold transition-colors duration-300 ease-in-out"
         >
           {{ item.label }}
