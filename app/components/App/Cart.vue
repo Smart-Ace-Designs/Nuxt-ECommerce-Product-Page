@@ -24,20 +24,29 @@ const updateCartContents = (id: number) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 md:flex-row">
+  <div class="flex flex-col gap-4 md:flex-row" role="group" aria-label="Product quantity controls">
     <div
       class="bg-theme-light-grayish-blue flex w-36 items-center justify-between gap-3 rounded-lg"
+      role="group"
+      aria-label="Quantity selector"
     >
       <button
         class="flex cursor-pointer items-center justify-center p-4"
         @click="cartIncrementAmount > 0 ? cartIncrementAmount-- : null"
+        aria-label="Decrease quantity"
+        :aria-disabled="cartIncrementAmount === 0"
       >
         <img src="/icon-minus.svg" alt="" />
       </button>
-      <span class="text-theme-very-dark-blue font-bold">{{ cartIncrementAmount }}</span>
+      <span
+        class="text-theme-very-dark-blue font-bold"
+        aria-live="polite"
+        aria-label="Selected quantity"
+      >{{ cartIncrementAmount }}</span>
       <button
         class="flex cursor-pointer items-center justify-center p-4"
         @click="cartIncrementAmount++"
+        aria-label="Increase quantity"
       >
         <img src="/icon-plus.svg" alt="" />
       </button>
@@ -56,6 +65,7 @@ const updateCartContents = (id: number) => {
         'bg-theme-orange text-shadow-theme-very-dark-blue text-theme-very-dark-blue flex items-center gap-4 rounded-lg px-20 py-4 font-bold transition-colors duration-200',
       ]"
       aria-label="Add to cart"
+      :aria-disabled="cartIncrementAmount === 0"
     >
       <svg
         class="fill-theme-very-dark-blue size-4"
