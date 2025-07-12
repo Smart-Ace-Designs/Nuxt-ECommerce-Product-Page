@@ -52,7 +52,7 @@ function toggleMobileMenu() {
         </ul>
       </nav>
     </div>
-    <div class="relative flex items-center gap-10">
+    <div class="relative flex items-center gap-4 lg:gap-10">
       <button
         aria-label="View cart"
         aria-haspopup="true"
