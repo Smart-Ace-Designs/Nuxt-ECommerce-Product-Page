@@ -14,12 +14,19 @@ const isOpen = ref<boolean>(false);
         @click="isOpen = true"
         :src="`/image-product-${selectedImage}.jpg`"
         :alt="`Fall limited edition sneakers - image ${selectedImage}`"
-        class="h-[300px] w-full object-cover sm:rounded-2xl lg:h-[445px]"
+        class="pointer-events-none h-[300px] w-full object-cover hover:cursor-pointer sm:pointer-events-auto sm:rounded-2xl lg:h-[445px]"
       />
       <button
-        class="absolute left-4 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-white p-2 sm:hidden"
+        class="hover:fill-theme-orange absolute left-4 top-1/2 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white p-2 sm:hidden"
+        @click="selectedImage = selectedImage === 1 ? 4 : selectedImage - 1"
       >
-        <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 18">
+        <svg
+          width="8"
+          height="12"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 12 18"
+          class="stroke-current"
+        >
           <path
             d="M11 1 3 9l8 8"
             stroke="#1D2026"
@@ -30,9 +37,16 @@ const isOpen = ref<boolean>(false);
         </svg>
       </button>
       <button
-        class="absolute right-4 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-white p-2 sm:hidden"
+        class="hover:fill-theme-orange absolute right-4 top-1/2 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white p-2 sm:hidden"
+        @click="selectedImage = selectedImage === 4 ? 1 : selectedImage + 1"
       >
-        <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 18">
+        <svg
+          width="8"
+          height="12"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 12 18"
+          class="stroke-current"
+        >
           <path
             d="m2 1 8 8-8 8"
             stroke="#1D2026"
