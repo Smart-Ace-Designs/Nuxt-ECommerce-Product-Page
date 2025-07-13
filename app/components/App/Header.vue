@@ -23,7 +23,7 @@ function toggleMobileMenu() {
 <template>
   <header
     role="banner"
-    class="sm:border-theme-grayish-blue/30 mx-auto flex max-w-5xl items-center justify-between p-6 sm:mb-12 sm:border-b lg:px-0"
+    class="sm:border-theme-grayish-blue/30 relative mx-auto flex max-w-5xl items-center justify-between p-6 sm:mb-12 sm:border-b lg:px-0"
   >
     <div class="flex gap-6 md:gap-14">
       <button
@@ -56,7 +56,7 @@ function toggleMobileMenu() {
         </ul>
       </nav>
     </div>
-    <div class="relative flex items-center gap-4 lg:gap-14">
+    <div class="flex items-center gap-4 lg:gap-12">
       <button
         aria-label="View cart"
         aria-haspopup="true"
@@ -80,7 +80,7 @@ function toggleMobileMenu() {
       />
       <div
         v-if="showCart"
-        class="absolute -right-20 top-[calc(100%+10px)]"
+        class="absolute left-1/2 top-full z-10 mt-3 -translate-x-1/2 sm:left-auto sm:right-2 sm:-mt-3 sm:translate-x-0 lg:right-0 xl:-right-20"
         id="cart-panel"
         role="dialog"
         aria-modal="true"

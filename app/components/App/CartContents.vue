@@ -26,7 +26,12 @@ const emit = defineEmits(["close"]);
 </script>
 
 <template>
-  <div class="w-[360px] rounded-xl bg-white pb-8 pt-4 shadow-xl" role="dialog" aria-label="Shopping Cart" tabindex="-1">
+  <div
+    class="w-[360px] rounded-xl bg-white pb-8 pt-4 shadow-xl"
+    role="dialog"
+    aria-label="Shopping Cart"
+    tabindex="-1"
+  >
     <h2 class="text-theme-very-dark-blue mb-7 px-6 font-bold">Cart</h2>
     <hr class="border-theme-grayish-blue/30 mb-6" />
     <div
@@ -41,19 +46,21 @@ const emit = defineEmits(["close"]);
         <img
           :src="product(item.id)?.images[0]?.thumbnail"
           :alt="product(item.id)?.name"
-          class="size-13 rounded-md"
+          class="size-13 rounded"
         />
         <div class="flex-1">
           <p class="text-theme-dark-grayish-blue">{{ product(item.id)?.name }}</p>
           <div class="text-theme-grayish-blue flex items-center gap-1">
             <span class="text-theme-dark-grayish-blue">${{ discountPrice(item) }}</span>
             <span class="text-theme-dark-grayish-blue">x</span>
-            <span class="text-theme-dark-grayish-blue" aria-label="Quantity: {{ item.quantity }}">{{ item.quantity }}</span>
+            <span class="text-theme-dark-grayish-blue" aria-label="Quantity: {{ item.quantity }}">{{
+              item.quantity
+            }}</span>
             <span class="text-theme-very-dark-blue ml-2 font-bold">${{ totalPrice(item) }}</span>
           </div>
         </div>
-        <button 
-          class="cursor-pointer p-1 transition hover:opacity-70" 
+        <button
+          class="cursor-pointer p-1 transition hover:opacity-70"
           @click="emptyCart"
           aria-label="Remove item from cart"
         >
