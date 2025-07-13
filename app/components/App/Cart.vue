@@ -24,9 +24,9 @@ const updateCartContents = (id: number) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 md:flex-row" role="group" aria-label="Product quantity controls">
+  <div class="flex flex-col gap-4 lg:flex-row" role="group" aria-label="Product quantity controls">
     <div
-      class="bg-theme-light-grayish-blue flex w-36 items-center justify-between gap-3 rounded-lg"
+      class="bg-theme-light-grayish-blue flex w-full items-center justify-between gap-3 rounded-lg lg:w-36"
       role="group"
       aria-label="Quantity selector"
     >
@@ -42,7 +42,8 @@ const updateCartContents = (id: number) => {
         class="text-theme-very-dark-blue font-bold"
         aria-live="polite"
         aria-label="Selected quantity"
-      >{{ cartIncrementAmount }}</span>
+        >{{ cartIncrementAmount }}</span
+      >
       <button
         class="flex cursor-pointer items-center justify-center p-4"
         @click="cartIncrementAmount++"
@@ -62,7 +63,7 @@ const updateCartContents = (id: number) => {
         cartIncrementAmount === 0
           ? 'cursor-not-allowed'
           : 'hover:bg-theme-orange/80 cursor-pointer',
-        'bg-theme-orange text-shadow-theme-very-dark-blue text-theme-very-dark-blue flex items-center gap-4 rounded-lg px-20 py-4 font-bold transition-colors duration-200',
+        'bg-theme-orange text-shadow-theme-very-dark-blue text-theme-very-dark-blue flex items-center justify-center gap-4 rounded-lg px-4 py-4 font-bold transition-colors duration-200 lg:px-20',
       ]"
       aria-label="Add to cart"
       :aria-disabled="cartIncrementAmount === 0"
