@@ -9,7 +9,7 @@ defineEmits(["close"]);
         <img src="/icon-close.svg" alt="Close menu" class="size-4" />
       </button>
       <nav class="mt-12">
-        <AppMobileNavList />
+        <AppMobileNavList @close="$emit('close')" />
       </nav>
     </div>
   </div>

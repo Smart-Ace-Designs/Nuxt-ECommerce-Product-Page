@@ -6,6 +6,8 @@ const navItems = [
   { label: "About", href: "/" },
   { label: "Contact", href: "/" },
 ];
+
+defineEmits(["close"]);
 </script>
 
 <template>
@@ -15,6 +17,7 @@ const navItems = [
         <NuxtLink
           :to="item.href"
           :aria-label="`Navigate to ${item.label} section`"
+          @click="$emit('close')"
           class="text-theme-very-dark-blue text-md hover:text-theme-orange font-semibold transition-colors duration-300 ease-in-out"
         >
           {{ item.label }}
