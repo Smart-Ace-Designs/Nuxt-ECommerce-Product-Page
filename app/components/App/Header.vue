@@ -90,7 +90,7 @@ function toggleMobileMenu() {
       </div>
       <div
         v-if="showMobileMenu"
-        class="fixed inset-0 bg-black/70"
+        class="fixed inset-0 z-10 bg-black/70"
         id="mobile-menu"
         role="dialog"
         aria-modal="true"
