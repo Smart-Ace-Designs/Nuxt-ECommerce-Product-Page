@@ -13,6 +13,10 @@
   --font-sans: "Kumbh", "sans-serif";
 
   --text-md: 0.9375rem;
+
+  --container-5xl: 1175px;
+
+  --breakpoint-lg: 1175px;
 }
 
 @font-face {
@@ -22,4 +26,3 @@
   src: url("/fonts/KumbhSans-VariableFont_YOPQ,wght.ttf") format("truetype");
   font-display: swap;
 }
-
