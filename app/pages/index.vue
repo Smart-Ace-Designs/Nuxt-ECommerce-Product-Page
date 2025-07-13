@@ -16,7 +16,7 @@ const images = computed(() => product.value?.images ?? []);
       <AppProductGallery :imageList="images" :productName="product?.name!" />
       <div class="my-auto flex flex-col gap-3 px-6 md:px-0 lg:gap-7">
         <AppProductDetails :product="product" />
-        <AppCart :productId="productId" />
+        <AppCartItemsControl :productId="productId" />
       </div>
     </section>
   </main>
