@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   imageList: Image[];
+  productName: string;
 }>();
 
 const selectedImage = ref<number>(1);
@@ -13,7 +14,7 @@ const isOpen = ref<boolean>(false);
       <img
         @click="isOpen = true"
         :src="`/image-product-${selectedImage}.jpg`"
-        :alt="`Fall limited edition sneakers - image ${selectedImage}`"
+        :alt="`${productName || 'Sneaker Product'} - image ${selectedImage}`"
         class="pointer-events-none h-[300px] w-full object-cover hover:cursor-pointer sm:pointer-events-auto sm:rounded-2xl lg:h-[445px]"
       />
       <button
