@@ -15,7 +15,7 @@ const discountPrice = computed(() => {
 </script>
 
 <template>
-  <div role="article" aria-label="Product Details" class="space-y-6">
+  <div role="article" aria-label="Product Details" class="space-y-6" aria-live="polite">
     <h2
       class="text-theme-dark-grayish-blue mb-4 text-xs font-bold uppercase tracking-[.175em]"
       aria-label="Brand"
@@ -34,17 +34,20 @@ const discountPrice = computed(() => {
     <div class="flex items-center gap-4 lg:flex-col lg:items-start">
       <div class="flex items-center gap-4">
         <span class="text-theme-very-dark-blue text-2xl font-bold lg:text-3xl"
+          :aria-label="`Current price: $${discountPrice}`"
           >${{ discountPrice }}</span
         >
         <span
           class="bg-theme-very-dark-blue rounded-md px-2 py-1 font-medium text-white"
-          aria-label="Discount Percentage"
+          :aria-label="`Discount: ${discountDisplay}`"
+          :aria-hidden="discountDisplay === '0%'"
           >{{ discountDisplay }}</span
         >
       </div>
       <p
         class="text-theme-dark-grayish-blue mt-2 font-semibold line-through lg:mt-0"
-        aria-label="Original Price"
+        :aria-label="`Original price: $${product?.price}`"
+        :aria-hidden="!product?.discount"
       >
         ${{ product?.price }}
       </p>

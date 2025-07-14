@@ -4,8 +4,19 @@ defineEmits(["close"]);
 
 <template>
   <div class="h-full w-full transition-opacity">
-    <div class="bg-theme-white absolute left-0 top-0 z-10 h-screen w-2/3 p-6">
-      <button class="absolute left-6 top-6 cursor-pointer" @click="$emit('close')">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="mobile-menu-title"
+      class="bg-theme-white absolute left-0 top-0 z-10 h-screen w-2/3 p-6"
+      tabindex="-1"
+    >
+      <h2 id="mobile-menu-title" class="sr-only">Mobile navigation menu</h2>
+      <button
+        class="absolute left-6 top-6 cursor-pointer"
+        @click="$emit('close')"
+        aria-label="Close navigation menu"
+      >
         <img src="/icon-close.svg" alt="Close menu" class="size-4" />
       </button>
       <nav class="mt-12">

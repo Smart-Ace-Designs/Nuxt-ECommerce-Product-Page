@@ -6,8 +6,13 @@ defineEmits(["close"]);
 
 <template>
   <nav aria-label="Main navigation" role="navigation">
-    <ul class="flex flex-col gap-3">
-      <li v-for="item in navItems" :key="item.label" class="relative cursor-pointer">
+    <ul role="list" class="flex flex-col gap-3">
+      <li
+        v-for="item in navItems"
+        :key="item.label"
+        class="relative cursor-pointer"
+        :aria-current="useRoute().path === item.href ? 'page' : undefined"
+      >
         <NuxtLink
           :to="item.href"
           :aria-label="`Navigate to ${item.label} section`"

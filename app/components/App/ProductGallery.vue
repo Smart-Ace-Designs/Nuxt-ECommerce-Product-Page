@@ -9,17 +9,19 @@ const isOpen = ref<boolean>(false);
 </script>
 
 <template>
-  <div class="grid sm:gap-3 md:gap-5 lg:gap-7">
+  <div class="grid sm:gap-3 md:gap-5 lg:gap-7" role="region" aria-label="Product image gallery">
     <div class="relative mb-6 sm:mb-0">
       <img
         @click="isOpen = true"
         :src="`/image-product-${selectedImage}.jpg`"
         :alt="`${productName || 'Sneaker Product'} - image ${selectedImage}`"
+        :aria-label="`Main product image ${selectedImage} of 4`"
         class="pointer-events-none h-[300px] w-full object-cover hover:cursor-pointer sm:pointer-events-auto sm:rounded-2xl lg:h-[445px]"
       />
       <button
         class="hover:fill-theme-orange absolute left-4 top-1/2 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white p-2 sm:hidden"
         @click="selectedImage = selectedImage === 1 ? 4 : selectedImage - 1"
+        :aria-label="`Previous image (${selectedImage === 1 ? 4 : selectedImage - 1} of 4)`"
       >
         <svg
           width="8"
@@ -40,6 +42,7 @@ const isOpen = ref<boolean>(false);
       <button
         class="hover:fill-theme-orange absolute right-4 top-1/2 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white p-2 sm:hidden"
         @click="selectedImage = selectedImage === 4 ? 1 : selectedImage + 1"
+        :aria-label="`Next image (${selectedImage === 4 ? 1 : selectedImage + 1} of 4)`"
       >
         <svg
           width="8"
@@ -66,6 +69,8 @@ const isOpen = ref<boolean>(false);
           selectedImage === image.id ? 'border-theme-orange rounded-xl border-2' : '',
           'md:size-30 cursor-pointer sm:mx-auto sm:size-24 lg:size-24',
         ]"
+        :aria-current="selectedImage === image.id ? 'true' : undefined"
+        :aria-hidden="$mq === 'sm'"
       >
         <img
           :src="image.thumbnail"
@@ -75,6 +80,7 @@ const isOpen = ref<boolean>(false);
             'w-full object-contain transition-opacity duration-200',
           ]"
           @click="selectedImage = image.id"
+          :aria-label="`Thumbnail ${image.id} of 4 - ${image.alt}`"
         />
       </div>
     </div>
