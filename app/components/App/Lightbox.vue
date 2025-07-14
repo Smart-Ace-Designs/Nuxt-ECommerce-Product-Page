@@ -16,6 +16,7 @@ const selectedImage = ref<number>(props.initialImage || 1);
     aria-modal="true"
     aria-label="Product image gallery"
     tabindex="-1"
+    aria-live="polite"
   >
     <div class="relative" role="region" aria-label="Main image viewer">
       <svg
@@ -40,7 +41,8 @@ const selectedImage = ref<number>(props.initialImage || 1);
       <button
         class="hover:text-theme-orange absolute -left-6 top-1/2 flex size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg transition-colors delay-200"
         @click="selectedImage = selectedImage === 1 ? 4 : selectedImage - 1"
-        aria-label="Previous image"
+        :aria-label="`Go to image ${selectedImage === 1 ? 4 : selectedImage - 1} of 4`"
+        :aria-pressed="selectedImage === 1 ? false : true"
       >
         <svg class="size-6 stroke-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 18">
           <path d="M11 1 3 9l8 8" stroke-width="2" fill="none" fill-rule="evenodd" />
@@ -50,7 +52,8 @@ const selectedImage = ref<number>(props.initialImage || 1);
       <button
         class="hover:text-theme-orange absolute -right-6 top-1/2 flex size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg transition-colors delay-200"
         @click="selectedImage = selectedImage === 4 ? 1 : selectedImage + 1"
-        aria-label="Next image"
+        :aria-label="`Go to image ${selectedImage === 4 ? 1 : selectedImage + 1} of 4`"
+        :aria-pressed="selectedImage === 4 ? false : true"
       >
         <svg class="size-6 stroke-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 18">
           <path d="m2 1 8 8-8 8" stroke-width="2" fill="none" fill-rule="evenodd" />
@@ -75,6 +78,7 @@ const selectedImage = ref<number>(props.initialImage || 1);
             :src="image.thumbnail"
             :alt="image.alt"
             class="h-full w-full object-cover transition-opacity duration-200"
+            :aria-label="`Thumbnail ${image.id} of 4 - ${image.alt}`"
           />
           <div v-if="selectedImage === image.id" class="absolute inset-0 bg-black/40"></div>
         </div>

@@ -3,6 +3,8 @@ defineProps<{
   productId: number;
 }>();
 
+const maxCartItems: number = 10;
+
 const cartIncrementAmount = ref(0);
 
 const cartCounter = useState<number>("cartCounter");
@@ -33,21 +35,24 @@ const updateCartContents = (id: number) => {
       <button
         class="flex cursor-pointer items-center justify-center p-4"
         @click="cartIncrementAmount > 0 ? cartIncrementAmount-- : null"
-        aria-label="Decrease quantity"
+        :aria-label="`Decrease quantity to ${cartIncrementAmount - 1}`"
         :aria-disabled="cartIncrementAmount === 0"
+        :disabled="cartIncrementAmount === 0"
       >
         <img src="/icon-minus.svg" alt="" />
       </button>
       <span
         class="text-theme-very-dark-blue font-bold"
         aria-live="polite"
-        aria-label="Selected quantity"
+        :aria-label="`Selected quantity: ${cartIncrementAmount} item${cartIncrementAmount !== 1 ? 's' : ''}`"
         >{{ cartIncrementAmount }}</span
       >
       <button
         class="flex cursor-pointer items-center justify-center p-4"
         @click="cartIncrementAmount++"
-        aria-label="Increase quantity"
+        :aria-label="`Increase quantity to ${cartIncrementAmount + 1}`"
+        :aria-disabled="cartIncrementAmount >= maxCartItems"
+        :disabled="cartIncrementAmount >= maxCartItems"
       >
         <img src="/icon-plus.svg" alt="" />
       </button>
@@ -65,7 +70,7 @@ const updateCartContents = (id: number) => {
           : 'hover:bg-theme-orange/80 cursor-pointer',
         'bg-theme-orange text-shadow-theme-very-dark-blue text-theme-very-dark-blue flex items-center justify-center gap-4 rounded-lg px-4 py-4 font-bold transition-colors duration-200 lg:px-20',
       ]"
-      aria-label="Add to cart"
+      :aria-label="`Add ${cartIncrementAmount} item${cartIncrementAmount !== 1 ? 's' : ''} to cart`"
       :aria-disabled="cartIncrementAmount === 0"
     >
       <svg

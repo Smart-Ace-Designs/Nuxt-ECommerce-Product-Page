@@ -46,6 +46,7 @@ function toggleMobileMenu() {
             <NuxtLink
               :to="item.href"
               class="text-theme-dark-grayish-blue text-md group-hover:text-theme-orange font-medium transition-colors duration-300 ease-in-out"
+              :aria-current="useRoute().path === item.href ? 'page' : undefined"
             >
               {{ item.label }}
             </NuxtLink>
@@ -58,8 +59,8 @@ function toggleMobileMenu() {
     </div>
     <div class="flex items-center gap-4 lg:gap-12">
       <button
-        aria-label="View cart"
-        aria-haspopup="true"
+        aria-label="View shopping cart"
+        aria-haspopup="dialog"
         :aria-expanded="showCart"
         aria-controls="cart-panel"
         class="relative cursor-pointer"
@@ -69,6 +70,7 @@ function toggleMobileMenu() {
         <span
           v-if="cartCounter > 0"
           class="bg-theme-orange absolute -right-2 -top-2 rounded-full px-2 text-[10px] text-white"
+          aria-label="Items in cart"
         >
           {{ cartCounter }}
         </span>
@@ -77,6 +79,7 @@ function toggleMobileMenu() {
         src="/image-avatar.png"
         alt="User avatar"
         class="hover:border-theme-orange transition-color size-6 cursor-pointer rounded-full border-2 border-transparent duration-300 md:size-14"
+        aria-label="User profile"
       />
       <div
         v-if="showCart"
@@ -95,6 +98,7 @@ function toggleMobileMenu() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="mobile-menu-title"
+        aria-label="Mobile navigation menu"
       >
         <AppMobileMenu @close="toggleMobileMenu" />
       </div>
