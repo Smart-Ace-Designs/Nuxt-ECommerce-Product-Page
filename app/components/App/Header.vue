@@ -1,11 +1,5 @@
 <script setup lang="ts">
-const navItems = [
-  { label: "Collections", href: "/" },
-  { label: "Men", href: "/" },
-  { label: "Women", href: "/" },
-  { label: "About", href: "/" },
-  { label: "Contact", href: "/" },
-];
+import navItems from "@@/data/navitems.json";
 
 const cartCounter = useState<number>("cartCounter");
 const showCart = ref(false);

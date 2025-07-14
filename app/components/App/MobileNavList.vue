@@ -1,11 +1,5 @@
 <script lang="ts" setup>
-const navItems = [
-  { label: "Collections", href: "/" },
-  { label: "Men", href: "/" },
-  { label: "Women", href: "/" },
-  { label: "About", href: "/" },
-  { label: "Contact", href: "/" },
-];
+import navItems from "@@/data/navitems.json";
 
 defineEmits(["close"]);
 </script>
