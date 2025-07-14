@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub](https://github.com/Smart-Ace-Designs/Astro-CHANGEME)
-- Live Site URL: [Netlify](https://smartacedesigns-astro-CHANGEME.netlify.app/)
+- Solution URL: [GitHub](https://github.com/Smart-Ace-Designs/Nuxt-ECommerce-Product-Page)
+- Live Site URL: [Netlify](https://smartacedesigns-nuxt-ecpp.netlify.app/)
 
 ## My process
 
