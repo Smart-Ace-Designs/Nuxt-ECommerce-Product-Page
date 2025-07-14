@@ -18,7 +18,7 @@ import navItems from "@@/data/navitems.json";
           {{ item.label }}
         </NuxtLink>
         <span
-          class="bg-theme-orange absolute left-0 right-0 top-[calc(100%+42px)] h-[2px] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          class="bg-theme-orange absolute left-0 right-0 top-[calc(100%+35px)] h-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         ></span>
       </li>
     </ul>
