@@ -15,9 +15,9 @@ function toggleMobileMenu() {
 <template>
   <header
     role="banner"
-    class="sm:border-theme-grayish-blue/30 relative mx-auto flex max-w-5xl items-center justify-between p-6 sm:mb-12 sm:border-b lg:px-0"
+    class="sm:border-theme-grayish-blue/30 relative mx-auto flex max-w-5xl items-center justify-between px-6 py-5 sm:mb-12 sm:border-b lg:px-0"
   >
-    <div class="flex gap-6 md:gap-14">
+    <div class="flex gap-4 md:gap-14">
       <button
         aria-label="Open menu"
         :aria-expanded="showMobileMenu"
@@ -30,7 +30,7 @@ function toggleMobileMenu() {
       <img src="/logo.svg" alt="Sneakers Logo" aria-label="Sneakers Logo" class="h-5" />
       <AppHeaderNav />
     </div>
-    <div class="flex items-center gap-4 lg:gap-12">
+    <div class="flex items-center gap-5 lg:gap-12">
       <button
         aria-label="View shopping cart"
         aria-haspopup="dialog"
@@ -51,7 +51,7 @@ function toggleMobileMenu() {
       <img
         src="/image-avatar.png"
         alt="User avatar"
-        class="hover:border-theme-orange transition-color size-6 cursor-pointer rounded-full border-2 border-transparent duration-300 md:size-14"
+        class="hover:border-theme-orange transition-color size-7 cursor-pointer rounded-full border-2 border-transparent duration-300 md:size-14"
         aria-label="User profile"
       />
       <div

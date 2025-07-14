@@ -17,7 +17,7 @@ const images = computed(() => product.value?.images ?? []);
     >
       <AppProductGallery :imageList="images" :productName="product?.name!" />
       <div
-        class="my-auto flex flex-col gap-3 px-6 md:px-0 lg:gap-7"
+        class="my-auto flex flex-col gap-6 px-6 md:px-0 lg:gap-7"
         role="region"
         aria-label="Product details"
       >

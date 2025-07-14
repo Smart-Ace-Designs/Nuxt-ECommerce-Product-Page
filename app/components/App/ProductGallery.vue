@@ -70,7 +70,6 @@ const isOpen = ref<boolean>(false);
           'md:size-30 cursor-pointer sm:mx-auto sm:size-24 lg:size-24',
         ]"
         :aria-current="selectedImage === image.id ? 'true' : undefined"
-        :aria-hidden="$mq === 'sm'"
       >
         <img
           :src="image.thumbnail"

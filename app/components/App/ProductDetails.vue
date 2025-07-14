@@ -17,35 +17,36 @@ const discountPrice = computed(() => {
 <template>
   <div role="article" aria-label="Product Details" class="space-y-6" aria-live="polite">
     <h2
-      class="text-theme-dark-grayish-blue mb-4 text-xs font-bold uppercase tracking-[.175em]"
+      class="text-theme-dark-grayish-blue mb-3 text-xs font-bold uppercase tracking-[.175em] lg:mb-4"
       aria-label="Brand"
     >
       {{ product?.brand }}
     </h2>
     <h1
-      class="text-theme-very-dark-blue md:leading-12 mb-10 text-[1.75rem] font-bold leading-8 md:text-[2.8rem]"
+      class="text-theme-very-dark-blue md:leading-12 text-[1.75rem] font-bold leading-8 md:text-[2.8rem] lg:mb-10"
       aria-label="Product Name"
     >
       {{ product?.name }}
     </h1>
-    <p class="text-theme-dark-grayish-blue" aria-label="Product Description">
+    <p class="text-theme-dark-grayish-blue text-md sm:text-base" aria-label="Product Description">
       {{ product?.description }}
     </p>
-    <div class="flex items-center gap-4 lg:flex-col lg:items-start">
+    <div class="flex items-center gap-4 sm:flex-col sm:items-start">
       <div class="flex items-center gap-4">
-        <span class="text-theme-very-dark-blue text-2xl font-bold lg:text-3xl"
+        <span
+          class="text-theme-very-dark-blue text-3xl font-bold"
           :aria-label="`Current price: $${discountPrice}`"
           >${{ discountPrice }}</span
         >
         <span
-          class="bg-theme-very-dark-blue rounded-md px-2 py-1 font-medium text-white"
+          class="bg-theme-very-dark-blue text-md rounded-md px-3 py-1 font-semibold text-white lg:text-base"
           :aria-label="`Discount: ${discountDisplay}`"
           :aria-hidden="discountDisplay === '0%'"
           >{{ discountDisplay }}</span
         >
       </div>
       <p
-        class="text-theme-dark-grayish-blue mt-2 font-semibold line-through lg:mt-0"
+        class="text-theme-dark-grayish-blue ml-auto font-bold line-through sm:ml-0"
         :aria-label="`Original price: $${product?.price}`"
         :aria-hidden="!product?.discount"
       >
