@@ -9,7 +9,7 @@ const images = computed(() => product.value?.images ?? []);
 </script>
 
 <template>
-  <main role="main">
+  <main>
     <section
       class="md:mt-22 mx-auto max-w-5xl sm:mt-11 sm:grid sm:grid-cols-2 sm:gap-8 sm:px-10 md:gap-16 lg:gap-32"
       aria-label="Product showcase"

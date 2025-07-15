@@ -31,21 +31,15 @@ const discountPrice = computed(() => {
     </p>
     <div class="flex items-center gap-4 sm:flex-col sm:items-start">
       <div class="flex items-center gap-4">
-        <span
-          class="text-theme-very-dark-blue text-3xl font-bold"
-          :aria-label="`Current price: $${discountPrice}`"
-          >${{ discountPrice }}</span
-        >
+        <span class="text-theme-very-dark-blue text-3xl font-bold">${{ discountPrice }}</span>
         <span
           class="bg-theme-very-dark-blue text-md rounded-md px-3 py-1 font-semibold text-white lg:text-base"
-          :aria-label="`Discount: ${discountDisplay}`"
           :aria-hidden="discountDisplay === '0%'"
           >{{ discountDisplay }}</span
         >
       </div>
       <p
         class="text-theme-dark-grayish-blue ml-auto font-bold line-through sm:ml-0"
-        :aria-label="`Original price: $${product?.price}`"
         :aria-hidden="!product?.discount"
       >
         ${{ product?.price }}
