@@ -26,7 +26,7 @@ const updateCartContents = (id: number) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 lg:flex-row" role="group" aria-label="Product quantity controls">
+  <div class="flex flex-col gap-4 lg:flex-row" aria-label="Product quantity controls">
     <div
       class="bg-theme-light-grayish-blue flex w-full items-center justify-between gap-3 rounded-lg py-1 lg:w-36"
       role="group"
@@ -42,12 +42,9 @@ const updateCartContents = (id: number) => {
       >
         <img src="/icon-minus.svg" alt="" />
       </button>
-      <span
-        class="text-theme-very-dark-blue font-bold"
-        aria-live="polite"
-        :aria-label="`Selected quantity: ${cartIncrementAmount} item${cartIncrementAmount !== 1 ? 's' : ''}`"
-        >{{ cartIncrementAmount }}</span
-      >
+      <span class="text-theme-very-dark-blue font-bold" aria-live="polite">{{
+        cartIncrementAmount
+      }}</span>
       <button
         class="flex cursor-pointer items-center justify-center p-4"
         type="button"

@@ -18,7 +18,7 @@ const selectedImage = ref<number>(props.initialImage || 1);
     tabindex="-1"
     aria-live="polite"
   >
-    <div class="relative" role="region" aria-label="Main image viewer">
+    <div class="relative" aria-label="Main image viewer">
       <svg
         class="text-theme-white hover:text-theme-orange absolute -top-12 right-0 size-6 cursor-pointer fill-current transition-colors delay-200"
         @click="$emit('close')"
