@@ -18,17 +18,15 @@ const discountPrice = computed(() => {
   <div role="article" aria-label="Product Details" class="space-y-6" aria-live="polite">
     <h2
       class="text-theme-dark-grayish-blue mb-3 text-xs font-bold uppercase tracking-[.175em] lg:mb-4"
-      aria-label="Brand"
     >
       {{ product?.brand }}
     </h2>
     <h1
       class="text-theme-very-dark-blue md:leading-12 text-[1.75rem] font-bold leading-8 md:text-[2.8rem] lg:mb-10"
-      aria-label="Product Name"
     >
       {{ product?.name }}
     </h1>
-    <p class="text-theme-dark-grayish-blue text-md sm:text-base" aria-label="Product Description">
+    <p class="text-theme-dark-grayish-blue text-md sm:text-base">
       {{ product?.description }}
     </p>
     <div class="flex items-center gap-4 sm:flex-col sm:items-start">

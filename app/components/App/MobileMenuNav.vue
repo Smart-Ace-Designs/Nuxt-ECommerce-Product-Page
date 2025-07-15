@@ -5,7 +5,7 @@ defineEmits(["close"]);
 </script>
 
 <template>
-  <nav aria-label="Main navigation" role="navigation">
+  <nav aria-label="Main navigation">
     <ul role="list" class="flex flex-col gap-3">
       <li
         v-for="item in navItems"

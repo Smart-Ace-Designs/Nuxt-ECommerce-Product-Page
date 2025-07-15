@@ -3,7 +3,7 @@ import navItems from "@@/data/navitems.json";
 </script>
 
 <template>
-  <nav role="navigation">
+  <nav>
     <ul class="text-theme-dark-grayish-blue hidden gap-3 sm:flex md:gap-8">
       <li
         v-for="item in navItems"
