@@ -20,6 +20,7 @@ const isOpen = ref<boolean>(false);
       />
       <button
         class="hover:fill-theme-orange absolute left-4 top-1/2 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white p-2 sm:hidden"
+        type="button"
         @click="selectedImage = selectedImage === 1 ? 4 : selectedImage - 1"
         :aria-label="`Previous image (${selectedImage === 1 ? 4 : selectedImage - 1} of 4)`"
       >
@@ -41,6 +42,7 @@ const isOpen = ref<boolean>(false);
       </button>
       <button
         class="hover:fill-theme-orange absolute right-4 top-1/2 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white p-2 sm:hidden"
+        type="button"
         @click="selectedImage = selectedImage === 4 ? 1 : selectedImage + 1"
         :aria-label="`Next image (${selectedImage === 4 ? 1 : selectedImage + 1} of 4)`"
       >

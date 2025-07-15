@@ -34,6 +34,7 @@ const updateCartContents = (id: number) => {
     >
       <button
         class="flex cursor-pointer items-center justify-center p-4"
+        type="button"
         @click="cartIncrementAmount > 0 ? cartIncrementAmount-- : null"
         :aria-label="`Decrease quantity to ${cartIncrementAmount - 1}`"
         :aria-disabled="cartIncrementAmount === 0"
@@ -49,6 +50,7 @@ const updateCartContents = (id: number) => {
       >
       <button
         class="flex cursor-pointer items-center justify-center p-4"
+        type="button"
         @click="cartIncrementAmount++"
         :aria-label="`Increase quantity to ${cartIncrementAmount + 1}`"
         :aria-disabled="cartIncrementAmount >= maxCartItems"
@@ -58,6 +60,7 @@ const updateCartContents = (id: number) => {
       </button>
     </div>
     <button
+      type="button"
       @click="
         updateCartCounter();
         updateCartContents(productId);

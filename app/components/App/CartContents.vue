@@ -53,14 +53,17 @@ const emit = defineEmits(["close"]);
           <div class="text-theme-grayish-blue flex items-center gap-1">
             <span class="text-theme-dark-grayish-blue">${{ discountPrice(item) }}</span>
             <span class="text-theme-dark-grayish-blue">x</span>
-            <span class="text-theme-dark-grayish-blue" :aria-label="`Quantity of ${product(item.id)?.name}: {{ item.quantity }}`">{{
-              item.quantity
-            }}</span>
+            <span
+              class="text-theme-dark-grayish-blue"
+              :aria-label="`Quantity of ${product(item.id)?.name}: {{ item.quantity }}`"
+              >{{ item.quantity }}</span
+            >
             <span class="text-theme-very-dark-blue ml-2 font-bold">${{ totalPrice(item) }}</span>
           </div>
         </div>
         <button
           class="cursor-pointer p-1 transition hover:opacity-70"
+          type="button"
           @click="emptyCart"
           :aria-label="`Remove ${product(item.id)?.name} from cart`"
         >
@@ -69,6 +72,7 @@ const emit = defineEmits(["close"]);
       </div>
       <button
         class="bg-theme-orange text-shadow-theme-very-dark-blue w-full rounded-lg py-4 font-bold transition hover:bg-orange-400"
+        type="button"
         @click="emptyCart"
         :aria-label="`Proceed to checkout (${cartContents.length} item${cartContents.length !== 1 ? 's' : ''})`"
       >

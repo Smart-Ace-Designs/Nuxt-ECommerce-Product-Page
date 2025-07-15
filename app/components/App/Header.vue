@@ -14,7 +14,6 @@ function toggleMobileMenu() {
 
 <template>
   <header
-    role="banner"
     class="sm:border-theme-grayish-blue/30 relative mx-auto flex max-w-5xl items-center justify-between px-6 py-5 sm:mb-12 sm:border-b lg:px-0"
   >
     <div class="flex gap-4 md:gap-14">
@@ -23,6 +22,7 @@ function toggleMobileMenu() {
         :aria-expanded="showMobileMenu"
         aria-controls="mobile-menu"
         class="sm:hidden"
+        type="button"
         @click="toggleMobileMenu"
       >
         <img src="/icon-menu.svg" alt="Menu" />
@@ -38,6 +38,7 @@ function toggleMobileMenu() {
         aria-controls="cart-panel"
         class="relative cursor-pointer"
         @click="toggleCart"
+        type="button"
       >
         <img src="/icon-cart.svg" alt="Cart" />
         <span

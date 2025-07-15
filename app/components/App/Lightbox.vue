@@ -40,6 +40,7 @@ const selectedImage = ref<number>(props.initialImage || 1);
 
       <button
         class="hover:text-theme-orange absolute -left-6 top-1/2 flex size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg transition-colors delay-200"
+        type="button"
         @click="selectedImage = selectedImage === 1 ? 4 : selectedImage - 1"
         :aria-label="`Go to image ${selectedImage === 1 ? 4 : selectedImage - 1} of 4`"
         :aria-pressed="selectedImage === 1 ? false : true"
@@ -51,6 +52,7 @@ const selectedImage = ref<number>(props.initialImage || 1);
 
       <button
         class="hover:text-theme-orange absolute -right-6 top-1/2 flex size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg transition-colors delay-200"
+        type="button"
         @click="selectedImage = selectedImage === 4 ? 1 : selectedImage + 1"
         :aria-label="`Go to image ${selectedImage === 4 ? 1 : selectedImage + 1} of 4`"
         :aria-pressed="selectedImage === 4 ? false : true"

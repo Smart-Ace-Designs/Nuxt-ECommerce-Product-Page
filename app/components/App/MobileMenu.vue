@@ -14,6 +14,7 @@ defineEmits(["close"]);
       <h2 id="mobile-menu-title" class="sr-only">Mobile navigation menu</h2>
       <button
         class="absolute left-6 top-6 cursor-pointer"
+        type="button"
         @click="$emit('close')"
         aria-label="Close navigation menu"
       >
