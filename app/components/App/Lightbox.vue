@@ -14,11 +14,10 @@ const selectedImage = ref<number>(props.initialImage || 1);
     class="flex h-screen flex-col items-center justify-center gap-10"
     role="dialog"
     aria-modal="true"
-    aria-label="Product image gallery"
     tabindex="-1"
     aria-live="polite"
   >
-    <div class="relative" aria-label="Main image viewer">
+    <div class="relative">
       <svg
         class="text-theme-white hover:text-theme-orange absolute -top-12 right-0 size-6 cursor-pointer fill-current transition-colors delay-200"
         @click="$emit('close')"

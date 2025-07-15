@@ -9,7 +9,7 @@ const isOpen = ref<boolean>(false);
 </script>
 
 <template>
-  <div class="grid sm:gap-3 md:gap-5 lg:gap-7" aria-label="Product image gallery">
+  <div class="grid sm:gap-3 md:gap-5 lg:gap-7">
     <div class="relative mb-6 sm:mb-0">
       <img
         @click="isOpen = true"
