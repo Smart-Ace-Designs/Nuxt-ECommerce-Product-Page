@@ -15,7 +15,7 @@ const discountPrice = computed(() => {
 </script>
 
 <template>
-  <div aria-label="Product Details" class="space-y-6" aria-live="polite">
+  <div class="space-y-6" aria-live="polite">
     <h2
       class="text-theme-dark-grayish-blue mb-3 text-xs font-bold uppercase tracking-[.175em] lg:mb-4"
     >
