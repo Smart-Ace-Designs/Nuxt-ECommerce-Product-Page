@@ -26,7 +26,7 @@ const updateCartContents = (id: number) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 lg:flex-row" aria-label="Product quantity controls">
+  <div class="flex flex-col gap-4 lg:flex-row">
     <div
       class="bg-theme-light-grayish-blue flex w-full items-center justify-between gap-3 rounded-lg py-1 lg:w-36"
       role="group"
