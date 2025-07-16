@@ -21,7 +21,7 @@ function toggleMobileMenu() {
         aria-label="Open menu"
         :aria-expanded="showMobileMenu"
         aria-controls="mobile-menu"
-        class="sm:hidden"
+        class="hover:cursor-pointer sm:hidden"
         type="button"
         @click="toggleMobileMenu"
       >
